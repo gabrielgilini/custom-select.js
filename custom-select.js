@@ -44,11 +44,11 @@ API.attachDocumentReadyListener(function()
         fakeSelectEl.appendChild(selectedText);
         fakeSelectEl.appendChild(fakeOptions);
         API.presentElement(fakeOptions, false);
-        API.setStyle(selectedText, 'height', '100%');
+        //API.setStyle(selectedText, 'height', '100%');
 
         selectEl.parentNode.appendChild(fakeSelectEl);
 
-        API.overlayElement(fakeSelectEl, selectEl, true);
+        //API.overlayElement(fakeSelectEl, selectEl, true);
         API.presentElement(selectEl, false);
 
         var close = function(e)
@@ -105,7 +105,7 @@ API.attachDocumentReadyListener(function()
             API.attachListener(rootEl, 'click', close)
         };
 
-        API.attachListener(fakeOptions, 'mousedown', close);
+        API.attachListener(fakeOptions, 'click', close);
 
         API.attachListener(
             fakeSelectEl,
@@ -114,7 +114,7 @@ API.attachDocumentReadyListener(function()
             {
                 var target = API.getEventTarget(e);
 
-                if(!isOpen)
+                if(!isOpen && !API.isDescendant(fakeOptions, target))
                 {
                     API.presentElement(fakeOptions, true);
                     global.setTimeout(attachRootClickListener, 1);
