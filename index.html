@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html>
+<head>
+    <title>Custom Select</title>
+    <script type="text/javascript" src="js/mylib.js"></script>
+    <script type="text/javascript" src="js/custom-select.js"></script>
+    <style type="text/css">
+        body { font-family: sans-serif; }
+        p {margin: 0;}
+
+        #custom {width: 166px; height: 26px;}
+
+        .custom-select p
+        {
+            font-size: 12px;
+            padding-left: 8px;
+            color: #666;
+            line-height: 23px;
+            background: transparent url(img/select-bg.gif) center no-repeat;
+            position: relative;
+            z-index: 1;
+        }
+        .custom-select ul
+        {
+            margin: 0;
+            min-width: 166px;
+            font-size: 12px;
+            background: #EEE;
+            border-radius: 0 0 8px 8px;
+            padding: 10px 0 0px 0;
+            overflow: hidden;
+            position: relative;
+            top: -10px;
+        }
+        .custom-select ul li
+        {
+            list-style: none;
+            list-style: none;
+            padding: 3px 6px;
+            color: #666;
+        }
+        .custom-select ul li:last-child
+        {
+            border-radius: 0 0 8px 8px;
+        }
+        .custom-select ul li:hover, .custom-select ul li.focused
+        {
+            color: #EEE;
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="test">
+        <label for="custom">
+            Test custom element
+            <select name="custom" id="custom">
+                <option value="">Select one option</option>
+                <option value="0">First</option>
+                <option value="1">Second</option>
+                <option value="2">Third</option>
+                <option value="3">Fourth</option>
+                <option value="4">Fifth</option>
+            </select>
+        </label>
+    </form>
+    <script type="text/javascript">
+        API.attachDocumentReadyListener(
+            function()
+            {
+                API.attachCustomSelect(document.forms.test.elements.custom);
+            }
+        );
+    </script>
+</body>
+</html>
