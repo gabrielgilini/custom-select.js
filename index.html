@@ -4,14 +4,17 @@
 <html>
 <head>
     <title>Custom Select</title>
-    <script type="text/javascript" src="js/mylib.js"></script>
-    <script type="text/javascript" src="js/custom-select.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/custom-select.jquery.js"></script>
     <style type="text/css">
         body { font-family: sans-serif; }
         p {margin: 0;}
 
         #custom {width: 166px; height: 26px;}
 
+        .custom-select {
+            width: 166px;
+        }
         .custom-select p
         {
             font-size: 12px;
@@ -67,12 +70,9 @@
         </label>
     </form>
     <script type="text/javascript">
-        API.attachDocumentReadyListener(
-            function()
-            {
-                API.attachCustomSelect(document.forms.test.elements.custom);
-            }
-        );
+        $(function() {
+            $('select').attachCustomSelect();
+        });
     </script>
 </body>
 </html>
